@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Image Downloader</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        background-color: #121212;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+      }
+
+      p {
+        padding: 0px;
+        font-weight: 600;
+        color: rgb(159, 64, 247);
+      }
+
+      #imglink {
+        padding: 5px 25px 5px 25px;
+        border: 2px solid blueviolet;
+        border-radius: 7px;
+        font-family: "Roboto", sans-serif;
+        color: rgb(43, 226, 226);
+        background-color: #080808;
+        box-shadow: 1px 5px 40px rgb(8, 8, 8);
+      }
+
+      #downloadbtn {
+        border: none;
+        border-radius: 5px;
+        color: aliceblue;
+        background-color: blueviolet;
+      }
+
+      #downloadbtn:hover {
+        scale: 1.1;
+        transition: 0.3s;
+        background-color: rgb(92, 29, 151);
+      }
+
+      @media screen and (max-width: 1920px) {
+        body {
+          gap: 5vh;
+        }
+        p {
+          font-size: 2.5vw;
+          margin: -8vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 3vw;
+          width: 40vw;
+          font-size: 1.3vw;
+        }
+
+        #downloadbtn {
+          height: 3.2vw;
+          width: 10vw;
+          font-size: 1.4vw;
+        }
+
+        svg {
+          height: 2.5vw;
+          width: 2.5vw;
+          margin: -5px 5px -5px 10px;
+        }
+      }
+
+      @media screen and (max-width: 1450px) {
+        body {
+          gap: 5vh;
+        }
+
+        p {
+          font-size: 2.62vw;
+          margin: -8vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 3.1vw;
+          width: 44vw;
+          font-size: 1.25vw;
+        }
+
+        #downloadbtn {
+          height: 3.4vw;
+          width: 11vw;
+          font-size: 1.45vw;
+        }
+      }
+
+      @media screen and (max-width: 1250px) {
+        p {
+          font-size: 3vw;
+          margin: -9vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 3.5vw;
+          width: 48vw;
+          font-size: 1.5vw;
+        }
+
+        #downloadbtn {
+          height: 3.7vw;
+          width: 13vw;
+          font-size: 1.55vw;
+        }
+
+        svg {
+          height: 2.6vw;
+          width: 2.6vw;
+          margin: -5px 5px -4px 10px;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        p {
+          font-size: 3.4vw;
+          margin: -9vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 3.65vw;
+          width: 50vw;
+          font-size: 1.9vw;
+        }
+
+        #downloadbtn {
+          height: 3.9vw;
+          width: 15vw;
+          font-size: 1.8vw;
+        }
+
+        svg {
+          height: 2.8vw;
+          width: 2.8vw;
+          margin: -5px 5px -3px 10px;
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        #imglink {
+          height: 3.8vw;
+          width: 60vw;
+          font-size: 2vw;
+        }
+
+        #downloadbtn {
+          height: 4.5vw;
+          width: 17vw;
+          font-size: 2.2vw;
+        }
+
+        svg {
+          height: 3vw;
+          width: 3vw;
+          margin: -5px 4px -3px 10px;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        p {
+          font-size: 4vw;
+          margin: -9vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 4vw;
+          width: 60vw;
+          font-size: 2.4vw;
+        }
+
+        #downloadbtn {
+          height: 5.2vw;
+          width: 19vw;
+          font-size: 2.5vw;
+        }
+
+        svg {
+          height: 4vw;
+          width: 4vw;
+          margin: -5px 8px -3px 8px;
+        }
+      }
+
+      @media screen and (max-width: 510px) {
+        p {
+          font-size: 5vw;
+          margin: -11vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 6vw;
+          width: 68vw;
+          font-size: 3.2vw;
+        }
+
+        #downloadbtn {
+          height: 7vw;
+          width: 27vw;
+          font-size: 3.2vw;
+        }
+      }
+
+      @media screen and (max-width: 410px) {
+        p {
+          font-size: 5.6vw;
+          margin: -18vh 0px 3vh 0px;
+        }
+
+        #imglink {
+          height: 7vw;
+          width: 70vw;
+          font-size: 3.2vw;
+        }
+
+        #downloadbtn {
+          height: 8vw;
+          width: 28vw;
+          font-size: 3.2vw;
+        }
+        svg {
+          height: 5.6vw;
+          width: 5.6vw;
+          margin: -5px 8px -3px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Online Image Downloader
+      <svg
+        style="color: blueviolet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="bi bi-arrow-down-square-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"
+          fill="blueviolet"
+        ></path>
+      </svg>
+    </p>
+    <input type="text" id="imglink" placeholder="paste your image link here..." />
+    <button id="downloadbtn" onclick="downloader()">Download</button>
+
+    <script>
+      const downloader = async () => {
+        let imglink = document.getElementById("imglink");
+        let link = imglink.value;
+        console.log(link);
+
+        if (link) {
+          let response = await fetch(link);
+          let hidden_a = document.createElement("a");
+          document.body.appendChild(hidden_a);
+          hidden_a.href = window.URL.createObjectURL(new Blob([response]));
+          hidden_a.setAttribute("download", "downloaded_image");
+          hidden_a.click();
+        } else {
+          window.alert("Please paste any Image link");
+        }
+      };
+    </script>
+  </body>
+</html>
