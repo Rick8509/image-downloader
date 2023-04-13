@@ -270,10 +270,12 @@
 
         if (link) {
           let response = await fetch(link);
+          let blob = await response.blob();
+
           let hidden_a = document.createElement("a");
           document.body.appendChild(hidden_a);
-          hidden_a.href = window.URL.createObjectURL(new Blob([response]));
-          hidden_a.setAttribute("download", "downloaded_image");
+          hidden_a.href = window.URL.createObjectURL(blob);
+          hidden_a.setAttribute("download", "downloaded_image.jpg");
           hidden_a.click();
         } else {
           window.alert("Please paste any Image link");
